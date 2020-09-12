@@ -3,5 +3,6 @@ declare namespace NodeJS {
     DATABASE_PASSWORD: string;
     SERVER_PORT: string;
     CAPTCHA_API_KEY: string;
+    CORS_ORIGIN: string;
   }
 }
