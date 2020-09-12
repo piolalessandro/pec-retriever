@@ -60,7 +60,6 @@ const instantiateBrowserAndPage = async () => {
   const chromeOptions = {
     headless: __prod__,
     slowMo: __puppeteer_slowmotion_ms_time__,
-    defaultViewport: null,
   }
 
   const browser = await puppeteer.launch(chromeOptions)
