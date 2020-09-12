@@ -9,7 +9,8 @@ import timeout from 'connect-timeout'
 
 const main = async () => {
   const app = express()
-  app.use(cors({ origin: true, credentials: true }))
+  app.set('proxy', 1)
+  app.use(cors({ origin: process.env.CORS_ORIGIN, credentials: true }))
   app.use(timeout(__express_timeout_time__))
 
   dbConnect()
@@ -17,7 +18,7 @@ const main = async () => {
   const apolloServer = new ApolloServer({ schema: graphqlSchema, debug: __prod__ })
   apolloServer.applyMiddleware({ app })
 
-  app.listen(process.env.SERVER_PORT, () => {
+  app.listen(parseInt(process.env.SERVER_PORT), () => {
     console.log(`Server started on port ${process.env.SERVER_PORT}`)
   })
 }
