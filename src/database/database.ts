@@ -4,12 +4,7 @@ import Mongoose from 'mongoose'
 let database: Mongoose.Connection
 
 export const dbConnect = async () => {
-  const dbDetails = {
-    user: 'pec-retriever-user',
-    password: process.env.DATABASE_PASSWORD,
-    db: 'pec-retriever',
-  }
-  const dbUri = `mongodb+srv://${dbDetails.user}:${dbDetails.password}@pec-retriever.mzc8t.gcp.mongodb.net/${dbDetails.db}?retryWrites=true&w=majority`
+  const dbUri = process.env.DATABASE_CONNECTION_STRING
 
   if (!database) {
     try {
