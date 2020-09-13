@@ -18,9 +18,9 @@ const websiteDetails = {
 const pollForRequestResults = async (
   apiKey: string,
   requestId: string,
-  retries = 30,
-  interval = 1500,
-  delay = 15000
+  retries = 100,
+  interval = 2000,
+  delay = 30000
 ) => {
   await sleep(delay)
   return poll({
@@ -48,7 +48,8 @@ export const scrapePec = async (taxCode: string, personType: PersonType) => {
   const { browser, page } = await instantiateBrowserAndPage()
 
   try {
-    await page.goto(pageUrl, { waitUntil: 'load', timeout: __puppeteer_page_timeout_ms_time__ })
+    page.setDefaultNavigationTimeout(__puppeteer_page_timeout_ms_time__)
+    await page.goto(pageUrl, { waitUntil: 'load' })
     const requestId = await initiateCaptchaRequest(websiteDetails.sitekey, process.env.CAPTCHA_API_KEY, pageUrl)
 
     await page.type(taxCodeField, taxCode)
@@ -56,7 +57,10 @@ export const scrapePec = async (taxCode: string, personType: PersonType) => {
     await page.evaluate(
       `document.getElementById("${websiteDetails.recaptchaInputField}").innerHTML="${requestResult}";`
     )
-    await Promise.all([page.waitForNavigation({ waitUntil: 'load' }), page.click(websiteDetails.submitButtonField)])
+    const navigationPromise = page.waitForNavigation()
+    await page.focus(websiteDetails.submitButtonField)
+    await page.keyboard.type('\n')
+    await navigationPromise
 
     try {
       const pec = await page.evaluate(
