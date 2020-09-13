@@ -3,14 +3,12 @@ import express from 'express'
 import { dbConnect, dbDisconnect } from './database/database'
 import { ApolloServer } from 'apollo-server-express'
 import graphqlSchema from './graphql/composer'
-// import cors from 'cors'
 import { __prod__, __express_timeout_time__ } from './constants'
 import timeout from 'connect-timeout'
 
 const main = async () => {
   const app = express()
   app.set('proxy', 1)
-  // app.use(cors({ origin: process.env.CORS_ORIGIN, credentials: true }))
   app.use(timeout(__express_timeout_time__))
 
   dbConnect()

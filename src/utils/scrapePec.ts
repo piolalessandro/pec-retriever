@@ -3,8 +3,8 @@ import poll from 'promise-poller'
 import { PersonType } from '../types/types'
 import { sleep } from './sleep'
 import { __puppeteer_slowmotion_ms_time__, __puppeteer_page_timeout_ms_time__ } from '../constants'
-import { instantiateBrowserAndPage } from "./puppeteerSetup";
-import { initiateCaptchaRequest } from "./captchaResolverSetup";
+import { instantiateBrowserAndPage } from './puppeteerSetup'
+import { initiateCaptchaRequest } from './captchaResolverSetup'
 
 const websiteDetails = {
   sitekey: '6Lf-0UAUAAAAAHdt6Gc54MkKXzoyV1iMzX7L55V9',
