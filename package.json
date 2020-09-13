@@ -10,7 +10,7 @@
     "start": "node dist/index.js",
     "build-env": "npx gen-env-types .env -o src/types/env.d.ts -e .",
     "lint": "yarn prettier --config .prettierrc 'src/**/*.ts' --write --check",
-    "serve": "docker run --rm -p 8080:8080 --cap-add=SYS_ADMIN --name puppeteer-chrome server yarn start",
+    "serve": "docker run --network=host --rm -it alesauro/pec-retriever",
     "test": "jest"
   },
   "author": "Alessandro Piola",
