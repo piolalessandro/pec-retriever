@@ -60,8 +60,12 @@ You can find a live version of the project here: https://pec-retriever.piolaless
 
 A graphical interface that queries the backend is also available at https://piolalessandro.xyz
 
-#### Deployment choices
+#### Deployment Choices
 
 - MongoDB database hosted by MongoDB Atlas (https://www.mongodb.com/cloud/atlas)
 - Backend deployed via Dockerfile on a Digitalocean droplet running Dokku (https://github.com/dokku/dokku)
-- Next.js frontend hosted by Vercel (https://vercel.com/) 
+- Next.js frontend hosted by Vercel (https://vercel.com/)
+
+### Git Hooks
+
+This project uses **Husky** to hook onto git commits and pushes to enforce linting and run tests.
