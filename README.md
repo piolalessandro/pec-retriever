@@ -34,7 +34,9 @@ yarn start
 #### local environment
 
 Head to http://localhost:8080/graphql and run queries in the GraphQL editor.
-Use the DOCS and SCHEMA tabs as references for how to build your queries.
+Use the DOCS and SCHEMA tabs as references for how to build your queries and let the autocomplete feature help you.
+
+> :warning: **A wait time of some minutes for query execution is expected for entries not stored in DB!**
 
 example:
 ```bash
@@ -46,7 +48,7 @@ query {
 #### containerized environment
 
 generate a **.env.production** file in the root folder of the project and copy the **.env** variables with production values,
-then build and run the Docker image.
+then build and run the Docker image, then follow the **local environment** instructions.
 
 ```bash
 yarn
