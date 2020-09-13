@@ -58,9 +58,9 @@ yarn serve-container
 
 ### Live version
 
-> :warning: **Live version is still WIP!**
-
 You can find a live version of the project here: https://pec-retriever.piolalessandro.xyz/graphql
+
+> :warning: **Graphical interface is still WIP!**
 
 A graphical interface that queries the backend is also available at https://piolalessandro.xyz
 
