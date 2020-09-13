@@ -41,10 +41,9 @@ describe('pec retrieval', () => {
     const res = await graphqlTestCall(GET_PEC_BY_TAX_CODE, { taxCode: '09276010__5', personType: "LEGAL" })
     expect(res.errors![0]!.extensions).toEqual({ code: 'INVALID_TAX_CODE' })
   })
-  // test commented temporarily: 2captcha api not responding right now
-  // it('should return not found for unregistered valid tax code', async () => {
-  //   jest.setTimeout(90000)
-  //   const res = await graphqlTestCall(GET_PEC_BY_TAX_CODE, { taxCode: '09276010964', personType: "LEGAL" })
-  //   expect(res.errors![0]!.extensions).toEqual({ code: 'NO_PEC_FOUND' })
-  // })
+  it('should return not found for unregistered valid tax code', async () => {
+    jest.setTimeout(180000)
+    const res = await graphqlTestCall(GET_PEC_BY_TAX_CODE, { taxCode: '09276010964', personType: "LEGAL" })
+    expect(res.errors![0]!.extensions).toEqual({ code: 'NO_PEC_FOUND' })
+  })
 })
