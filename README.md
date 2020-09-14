@@ -73,3 +73,9 @@ A graphical interface that queries the backend is also available at https://piol
 ### Git Hooks
 
 This project uses **Husky** to hook onto git commits and pushes to enforce linting and run tests.
+
+### Troubleshooting
+
+If you're trying to run the project in a WSL2 environment and you cannot connect to MongoDB Atlas, try following the steps in the link to fix DNS resolution:
+
+https://gist.github.com/coltenkrauter/608cfe02319ce60facd76373249b8ca6
